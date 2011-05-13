@@ -41,12 +41,11 @@ class Golf
     
     def hole6(x)
       (1..x).map { |i|
-        case true
-        when i % 15 == 0
+        if i % 15 == 0
           F + B
-        when i % 3 == 0
+        elsif i % 3 == 0
           F
-        when i % 5 == 0
+        elsif i % 5 == 0
           B
         else
           i
