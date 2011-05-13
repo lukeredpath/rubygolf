@@ -55,16 +55,16 @@ class Golf
     end
     
     def hole7(a)
-      [].tap { |ranges|
+      [].tap { |r|
         s = nil
         a.each_with_index { |e, i|
           if i == 0
             s = e
           elsif (i == a.length-1)
-            ranges << "#{s}-#{e}"
+            r << "#{s}-#{e}"
           else          
             if e > (l = a[i-1])+1
-              ranges << ((s == l) ? s.to_s : "#{s}-#{l}")
+              r << ((s == l) ? s.to_s : "#{s}-#{l}")
               s = e
             end
           end
@@ -79,30 +79,29 @@ class Golf
     end
     
     def hole9(p)
-      votes = File.readlines(p).map { |v| v.strip.split(", ") }
-      post = votes.length.to_f / 2.0
-      winner = nil
-      eliminated = []
-      round = 0
-      until winner || (round == 6)
-        results = votes.map { |v| v[0] }
-        results = results.sort_by { |c| results.grep(c).length }.compact
-        if results.uniq.length == 2
-          winner = results.last
+      v = File.readlines(p).map { |l| l.strip.split(", ") }
+      p = v.size.to_f / 2.0
+      w = nil
+      r = 0
+      until w
+        x = v.map { |i| i[0] }
+        x = x.sort_by { |c| x.grep(c).size }.compact
+        if x.uniq.size == 2
+          w = x.last
         else
-          round_winner = results.last
-          round_loser  = results.first
-          if results.grep(round_winner).length > post
-            winner = round_winner
+          a = x.last
+          z = x.first
+          if x.grep(a).size > p
+            w = a
           else
-            votes.each { |v|
-              v.delete(round_loser)  
+            v.each { |i|
+              i.delete(z)  
             }
           end
         end
-        round += 1
+        r += 1
       end
-      winner
+      w
     end
   end
 end
