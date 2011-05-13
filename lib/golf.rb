@@ -68,9 +68,11 @@ class Golf
     end
     
     def hole8(i)
-      (i-1).times.inject([1]) { |a, x|
-        a << ((x == 0) ? 0 : a[x-1]) + (a[x])
-      }
+      a, b = 0, 1
+      [].tap { |r| i.times {
+        r << b
+        a, b = b, a + b
+      }}
     end
     
     def hole9(p)
