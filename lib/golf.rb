@@ -77,7 +77,7 @@ class Golf
     
     def hole9(p)
       v = File.readlines(p).map { |l| l.strip.split(", ") }
-      p = v.size.to_f / 2.0
+      p = v.size / 2.0
       w = nil
       r = 0
       until w
@@ -87,12 +87,11 @@ class Golf
           w = x.last
         else
           a = x.last
-          z = x.first
           if x.grep(a).size > p
             w = a
           else
             v.each { |i|
-              i.delete(z)  
+              i.delete(x.first)  
             }
           end
         end
