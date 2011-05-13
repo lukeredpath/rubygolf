@@ -29,11 +29,7 @@ class Golf
     end
     
     def hole5(a)
-      (0..a.size-1).map { |x|
-        (x..a.size-1).map { |y|
-          a[x..y]
-        }.sort
-      }.flatten(1).sort_by { |l| l.join.to_i }
+      (1..a.size).map { |x| a.each_cons(x).to_a }.flatten(1)
     end
     
     F = "fizz"
