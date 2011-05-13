@@ -29,8 +29,8 @@ class Golf
     end
     
     def hole5(a)
-      (0..a.length-1).map { |x|
-        (x..a.length-1).map { |y|
+      (0..a.size-1).map { |x|
+        (x..a.size-1).map { |y|
           a[x..y]
         }.sort
       }.flatten(1).sort_by { |l| l.join.to_i }
@@ -60,7 +60,7 @@ class Golf
         a.each_with_index { |e, i|
           if i == 0
             s = e
-          elsif (i == a.length-1)
+          elsif (i == a.size-1)
             r << "#{s}-#{e}"
           else          
             if e > (l = a[i-1])+1
