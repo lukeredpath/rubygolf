@@ -1,5 +1,3 @@
-require 'ap'
-
 class Golf
   class << self
     def hole1(a)
