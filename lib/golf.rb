@@ -1,7 +1,7 @@
 class Golf
   class << self
     def hole1(a)
-      a.inject &:*
+      a.inject :*
     end
     
     def hole2(a)
@@ -9,7 +9,7 @@ class Golf
     end
     
     def hole3(i)
-      (1..i).inject &:*
+      (1..i).inject :*
     end
     
     def hole4(a)
