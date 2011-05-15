@@ -11,7 +11,7 @@ class << Golf = ""
     (1..i).inject :*
   end
   
-  def hole4(a)
+  def hole4 a
     a.map { |i| 
       i =~ /^(.*)\(/
       case $1
