@@ -1,14 +1,14 @@
 class Golf
   class << self
-    def hole1(a)
+    def hole1 a
       a.inject :*
     end
     
-    def hole2(a)
+    def hole2 a
       a.split(" ").sort_by { |w| w[1] } * " "
     end
     
-    def hole3(i)
+    def hole3 i
       (1..i).inject :*
     end
     
@@ -26,20 +26,20 @@ class Golf
       }
     end
     
-    def hole5(a)
+    def hole5 a
       (1..a.size).map { |x| a.each_cons(x).to_a }.flatten(1)
     end
     
     F = "fizz"
     B = "buzz"
     
-    def hole6(x)
+    def hole6 x
       (1..x).map { |i|
         (i % 15) == 0 ? F + B : (i % 3 == 0 ? F : (i % 5 == 0 ? B : i))
       }
     end
     
-    def hole7(a)
+    def hole7 a
       [].tap { |r|
         s = nil
         a.each_with_index { |e, i|
@@ -57,7 +57,7 @@ class Golf
       }
     end
     
-    def hole8(i)
+    def hole8 i
       a, b = 0, 1
       [].tap { |r| i.times {
         r << b
@@ -65,7 +65,7 @@ class Golf
       }}
     end
     
-    def hole9(p)
+    def hole9 p
       v = File.readlines(p).map { |l| l.strip.split(", ") }
       p = v.size / 2.0
       w = nil
