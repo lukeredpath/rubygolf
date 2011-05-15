@@ -35,15 +35,7 @@ class Golf
     
     def hole6(x)
       (1..x).map { |i|
-        if i % 15 == 0
-          F + B
-        elsif i % 3 == 0
-          F
-        elsif i % 5 == 0
-          B
-        else
-          i
-        end
+        (i % 15) == 0 ? F + B : (i % 3 == 0 ? F : (i % 5 == 0 ? B : i))
       }
     end
     
